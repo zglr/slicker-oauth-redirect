@@ -21,7 +21,8 @@ export default {
         const statusCode = 301;
         return Response.redirect(destinationURL, statusCode);
       } else {
-        return new Response('Error');
+        const statusCode = 400;
+        return Response.redirect('https://slickerstickers.app', statusCode);
       }
   },
 };
