@@ -22,7 +22,7 @@ export default {
           "content-type": "text/html;charset=UTF-8",
           }});
       } else {
-        const statusCode = 400;
+        const statusCode = 302;
         return Response.redirect('https://slickerstickers.app', statusCode);
       }
   },
