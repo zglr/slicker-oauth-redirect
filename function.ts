@@ -17,9 +17,10 @@ export default {
       });
       const content: SlackResponse = await rawResponse.json();
       if (content.ok) {
-        const destinationURL = `slicker://oauth?token=${content.authed_user.access_token}&team_name=${encodeURIComponent(content.team.name)}`;
-        const statusCode = 301;
-        return Response.redirect(destinationURL, statusCode);
+          return new Response(`<html><head><meta http-equiv="refresh" content="0; url=slicker://oauth?token=${content.authed_user.access_token}&team_name=${encodeURIComponent(content.team.name)}"></head><body><h1>Please download Slicker from <a href="https://slickerstickers.app">slickerstickers.app</a> and log in from there.</h1></body></html>`, {
+          headers: {
+          "content-type": "text/html;charset=UTF-8",
+          }});
       } else {
         const statusCode = 400;
         return Response.redirect('https://slickerstickers.app', statusCode);
