@@ -17,7 +17,7 @@ export default {
       });
       const content: SlackResponse = await rawResponse.json();
       if (content.ok) {
-          return new Response(`<html><head><meta http-equiv="refresh" content="0; url=slicker://oauth?token=${content.authed_user.access_token}&team_name=${encodeURIComponent(content.team.name)}"></head><body><h1>Please download Slicker from <a href="https://slickerstickers.app">slickerstickers.app</a> and log in from there.</h1></body></html>`, {
+          return new Response(`<html><head><meta http-equiv="refresh" content="0; url=slicker://oauth?token=${content.authed_user.access_token}&team_name=${encodeURIComponent(content.team.name)}"><script>setTimeout(function(){document.location = 'https://slickerstickers.app';}, 100);</script></head><body></body></html>`, {
           headers: {
           "content-type": "text/html;charset=UTF-8",
           }});
